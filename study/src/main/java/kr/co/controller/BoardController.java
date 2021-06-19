@@ -58,7 +58,7 @@ public class BoardController {
 			return "board/list";
 			
 		}
-	// 게시판 조회
+		// 게시판 조회
 		@RequestMapping(value = "/readView", method = RequestMethod.GET)
 		public String read(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
 			logger.info("read");

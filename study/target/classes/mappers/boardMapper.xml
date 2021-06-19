@@ -16,6 +16,16 @@
    
    </insert>
    <!-- 게시판 글 조회 -->
+   <select id="read" parameterType="int" resultType="kr.co.vo.BoardVO">
+		SELECT	BNO
+			  , TITLE
+			  , CONTENT
+			  , WRITER
+			  , REGDATE
+		 FROM MP_BOARD
+		 WHERE BNO = #{bno}
+	</select>
+	
   <select id="listPage" resultType="kr.co.vo.BoardVO" parameterType="kr.co.vo.SearchCriteria">
 		SELECT  BNO, 
 		        TITLE, 
