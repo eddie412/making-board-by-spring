@@ -22,5 +22,19 @@ public class ReplyServiceImpl implements ReplyService{
 	public void writeReply(ReplyVO vo) throws Exception{
 		dao.writdReply(vo);
 	}
+	//댓글수정
+	@Override
+	public void updateReply(ReplyVO vo) throws Exception{
+		dao.updateReply(vo);
+	}
+	//댓글 삭제
+	@Override
+	public void deleteReply(ReplyVO vo) throws Exception{
+		dao.deleteReply(vo);
+	}
+	//선택된 댓글 조회
+	public ReplyVO selectReply(int rno) throws Exception{
+		return dao.selectReply(rno);
+	}
 
 }

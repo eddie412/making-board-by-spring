@@ -24,4 +24,19 @@ public class ReplyDAOImpl implements ReplyDAO{
 	public void writdReply(ReplyVO vo) throws Exception {
 		sql.insert("replyMapper.writeReply",vo);
 	}
+	//댓글 수정
+	public void updateReply(ReplyVO vo) throws Exception{
+		sql.update("replyMapper.updateReply",vo);
+	}
+
+	//댓글 삭제
+	public void deleteReply(ReplyVO vo) throws Exception{
+		sql.delete("replyMapper.deleteReply",vo);
+	}
+
+	//선택된 댓글 조회
+	public ReplyVO selectReply(int rno) throws Exception{
+		return sql.selectOne("replyMapper.selectReply",rno);
+	}
+	
 }
