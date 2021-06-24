@@ -31,6 +31,23 @@
 					$("#userName").focus();
 					return false;
 				}
+				$.ajax({
+					url: "/member/passChk",
+					type: "POST",
+					dateType: "json",
+					data: $("updateForm").serializeArry(),
+					success: function(data){
+						if(data==true){
+							if(confirm("회원수정하시겠습니까?")){
+								$("#updateForm").submit();
+							}
+						}else{
+							alert("패스워드가 틀렸습니다.");
+							return;
+						}
+					}
+					
+				})
 			});
 			
 				
@@ -57,6 +74,10 @@
 					<button class="cencle btn btn-danger" type="button">취소</button>
 				</div>
 			</form>
+				<div class="form-group has feedback">
+					<button class="btn btn-success" type="button" id="submit">회원정보수정</button>
+					<button class="cencle btn btn-danger" type="button">취소</button>
+				</div>
 		</section>
 		
 	</body>
