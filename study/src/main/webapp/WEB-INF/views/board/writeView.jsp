@@ -45,7 +45,7 @@
 		<hr/>
 		
 		<section id="container">
-			<form name="writeForm" method="post" action="/board/write">
+			<form name="writeForm" method="post" action="/board/write" enctype="multipart/form-data">
 				<table>
 					<tbody>
 						<c:if test="${member.userId !=null}">
@@ -65,13 +65,18 @@
 									<label for="writer">작성자</label><input type="text" id="writer" name="writer" class="chk" title="작성자를 입력하세요."/>
 								</td>
 							<tr>
+								<td>
+									<input type="file" name="file">
+								</td>
+							</tr>
+							<tr>
 								<td>						
 									<button type="submit" class="write_btn">작성</button>
 								</td>
 							</tr>
 						</c:if>
-						<c:if test="${member.userid==null}">
-							<p>로그인 후에 작석하실 수 있습니다.</p>
+						<c:if test="${member.userId==null}">
+							<p>로그인 후에 작성하실 수 있습니다.</p>
 						</c:if>			
 						</tbody>			
 					</table>

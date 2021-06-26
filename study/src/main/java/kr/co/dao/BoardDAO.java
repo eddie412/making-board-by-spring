@@ -5,6 +5,7 @@ import kr.co.vo.Criteria;
 import kr.co.vo.SearchCriteria;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BoardDAO {
 
@@ -20,4 +21,6 @@ public interface BoardDAO {
 		public void update(BoardVO boardVO) throws Exception;
 	// 게시물 삭제
 		public void delete(int bno) throws Exception;
+	//첨부파일 업로드
+		public void insertFile(Map<String, Object>map) throws Exception;
 }
