@@ -56,8 +56,24 @@ public class BoardServiceImpl implements BoardService {
 	
 	//게시물 수정
 	@Override
-	public void update(BoardVO boardVO) throws Exception{
+	public void update(BoardVO boardVO,
+				String[] files,
+				String[] fileNames,
+				MultipartHttpServletRequest mpRequest) throws Exception{
+			
 		dao.update(boardVO);
+		
+		List<Map<String, Object>> list = fileUtils.parseUpdateFileInfo(boardVO, files, fileNames, mpRequest);
+		Map<String, Object> tempMap = null;
+		int size = list.size();
+		for(int i = 0; i<size; i++) {
+			tempMap = list.get(i);
+			if(tempMap.get("IS_NEW").equals("Y")) {
+				dao.insertFile(tempMap);
+			}else {
+				dao.updateFile(tempMap);
+			}
+		}
 	}
 	//게시물 삭제
 	@Override

@@ -99,10 +99,12 @@
     <select id="selectFileList" parameterType="int" resultType="hashMap">
     	SELECT FILE_NO,
     			ORG_FILE_NAME,
-    			ROUND(FILE_SIZE/1024,1) AS FILE_SIZE
+    			ROUND(FILE_SIZE/1024,1) AS FILE_SIZE,
+    			DEL_GB
     	FROM MP_FILE
     	WHERE BNO= #{BNO}
     		AND DEL_GB = 'N'
+    		ORDER BY FILE_NO ASC
     </select>
     <!-- 첨부파일 다운 -->
     <select id="selectFileInfo" parameterType="hashMap" resultType="hashMap">
@@ -112,5 +114,11 @@
     	FROM MP_FILE
     	WHERE FILE_NO = #{FILE_NO}
     </select>
+    
+    <update id="updateFile" parameterType="hashMap">
+    	UPDATE MP_FILE SET
+    	DEL_GB = 'Y'      <!-- N값이면 보여주고 Y이면 보여주지 않음 -->
+    	WHERE FILE_NO = #{FILE_NO}
+    </update>
     
 </mapper>

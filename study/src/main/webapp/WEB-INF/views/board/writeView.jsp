@@ -31,6 +31,17 @@
 				}
 			}
 		}
+		function fn_addFile(){
+			var fileIndex = 1;
+			//$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"<button type='button' style='float:right;' id='fileAddBtn'>"+"추가"+"</button></div>");
+			$(".fileAdd_btn").on("click", function(){
+				$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"</button>"+"<button type='button' style='float:right;' id='fileDelBtn'>"+"삭제"+"</button></div>");
+			});
+			$(document).on("click","#fileDelBtn", function(){
+				$(this).parent().remove();
+				
+			});
+		}
 	</script>
 <body>
 
@@ -72,6 +83,7 @@
 							<tr>
 								<td>						
 									<button type="submit" class="write_btn">작성</button>
+									<button class = "fileAdd_btn" type="button">파일추가</button>
 								</td>
 							</tr>
 						</c:if>
