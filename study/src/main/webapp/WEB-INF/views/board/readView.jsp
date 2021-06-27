@@ -72,6 +72,13 @@
 					+ "&rno="+$(this).attr("data-rno");
 			});
 		})
+			//첨부파일 다운로드
+			function fn_fileDown(fileNo){
+				var formObj = $("form[name='readForm']");
+				$("#FILE_NO").attr("value", fileNo);
+				formObj.attr("action", "/board/fileDown");
+				formObj.submit();
+			}
 	</script>
 	
 	<body>
