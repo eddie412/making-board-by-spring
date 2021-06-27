@@ -17,6 +17,7 @@ public interface BoardService {
 	
 	//게시물 총 갯수
 	public int listCount(SearchCriteria scri) throws Exception;
+	
 	//게시물 조회
 	public BoardVO read(int bno) throws Exception;
 	
@@ -34,5 +35,6 @@ public interface BoardService {
 	
 	//첨부파일 다운
 	public Map<String, Object> selectFileInfo(Map<String, Object>map) throws Exception;
+	
 	
 }
